@@ -4,8 +4,7 @@ import com.universidad.tienda_suplementos.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
+import com.universidad.tienda_suplementos.dto.RegistroRequestDTO;
 
 @RestController
 @RequestMapping("/api/registro")
@@ -15,19 +14,16 @@ public class RegistroController {
     private EmailService emailService;
 
     @PostMapping
-    public ResponseEntity<String> registrarUsuario(@RequestBody Map<String, String> request) {
-        String correo = request.get("correo");
-        String nombre = request.get("nombre");
+    public ResponseEntity<String> registrarUsuario(@RequestBody RegistroRequestDTO request) {
+        String correo = request.getCorreo();
+        String nombre = request.getNombre();
 
         try {
-            // Simulacion de guardado en BD
-            
             // Envio del correo
             emailService.enviarCorreoRegistroHTML(correo, nombre);
-            
-            return ResponseEntity.ok("Usuario registrado y correo HTML enviado con éxito a: " + correo);
+            return ResponseEntity.ok("Usuario registrado y correo enviado a: " + correo);
         } catch (Exception e) {
-            return ResponseEntity.internalServerError().body("Error al enviar el correo: " + e.getMessage());
+            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
         }
     }
 }
