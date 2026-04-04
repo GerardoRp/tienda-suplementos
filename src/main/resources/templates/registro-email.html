@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+</head>
+<body style="font-family: Arial, sans-serif; color: #333; padding: 20px;">
+    <div style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; text-align: center;">
+        <h2 style="color: #2e6c80;">¡Bienvenido a la Tienda de Suplementos!</h2>
+        <p th:text="'Hola, ' + ${nombre} + '.'">Hola, Usuario.</p>
+        <p>Tu cuenta ha sido registrada exitosamente. Estamos listos para ayudarte a alcanzar tus metas fitness.</p>
+        <hr>
+        <p style="font-size: 12px; color: #888;">Este es un correo generado automáticamente, por favor no respondas.</p>
+    </div>
+</body>
+</html>
