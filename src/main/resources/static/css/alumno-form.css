@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box; /* Aplica un modelo de caja que incluye el padding y el borde dentro del ancho y alto total del elemento */
+}
+
+body {/*Estilos generales para el cuerpo de la página, incluyendo márgenes, fuente, fondo y color de texto */
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #1f2937;
+}
+
+.page-container {/*Contenedor principal que centra el contenido vertical y horizontalmente, con un mínimo de altura para ocupar toda la pantalla */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+}
+
+.form-card {/*Tarjeta que contiene el formulario, con un fondo blanco, bordes redondeados, sombra y un ancho máximo para mantener una buena legibilidad */
+    width: 100%;
+    max-width: 760px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+}
+
+.form-header {/*Encabezado del formulario con un margen inferior para separar visualmente del resto del contenido */
+    margin-bottom: 24px;
+}
+
+.form-header h1 {/*Estilos para el título del formulario, con un tamaño de fuente grande y un margen inferior para separar del párrafo descriptivo */
+    margin: 0 0 8px 0;
+    font-size: 30px;
+}
+
+.form-header p {/*Estilos para el párrafo descriptivo del formulario, con un tamaño de fuente más pequeño y un color gris para diferenciarlo del título */
+    margin: 0;
+    color: #6b7280;
+}
+
+.form-grid {/*Contenedor que organiza los campos del formulario en una cuadrícula de dos columnas, con un espacio entre ellas para mejorar la legibilidad */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.form-group {/*Contenedor para cada grupo de campos, con un margen inferior para separar visualmente cada sección del formulario */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {/*Estilos para las etiquetas de los campos del formulario, con un margen inferior para separar del campo de entrada y un peso de fuente más alto para mejorar la legibilidad */
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,/*Estilos para los campos de entrada del formulario, con un ancho completo, padding, borde, bordes redondeados, tamaño de fuente y una transición para el enfoque */
+.form-group select {/*Estilos para los campos de selección del formulario, con las mismas propiedades que los campos de entrada para mantener la consistencia visual */
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,/*Estilos para los campos de entrada cuando están enfocados, cambiando el color del borde para indicar que están activos */
+.form-group select:focus {/*Estilos para los campos de selección cuando están enfocados, con el mismo cambio de color de borde que los campos de entrada */
+    border-color: #2563eb;
+}
+
+.error-message {/*Estilos para los mensajes de error, con un mínimo de altura para evitar cambios de diseño, un margen superior para separar del campo de entrada, un color rojo para indicar error y un tamaño de fuente más pequeño */
+    min-height: 18px;
+    margin-top: 6px;
+    color: #b91c1c;
+    font-size: 13px;
+}
+
+.button-row {/*Contenedor para los botones de acción, con estilos para alinearlos a la derecha y un espacio entre ellos */
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn {/*Estilos generales para los botones, con un borde sin estilo, bordes redondeados, padding, tamaño de fuente, cursor de puntero y una transición para el efecto hover */
+    border: none;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    flex: 1;
+}
+
+.btn:hover {/*Estilos para los botones cuando se pasa el cursor sobre ellos, reduciendo la opacidad para indicar que son interactivos */
+    opacity: 0.92;
+}
+
+.btn-primary {/*Estilos específicos para el botón primario, con un fondo azul y texto blanco para destacar la acción principal del formulario */
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-secondary {/*Estilos específicos para el botón secundario, con un fondo gris y texto blanco para indicar una acción secundaria o de limpieza del formulario */
+    background: #6b7280;
+    color: #ffffff;
+}
+
+.server-response {/*Estilos para la sección que muestra la respuesta del servidor, con un margen superior para separar del formulario, padding, bordes redondeados y un tamaño de fuente más pequeño */
+    margin-top: 24px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.server-response.success {/*Estilos específicos para la respuesta de éxito del servidor, con un fondo verde claro, texto verde oscuro y un borde verde para indicar que la operación fue exitosa */
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.server-response.error {/*Estilos específicos para la respuesta de error del servidor, con un fondo rojo claro, texto rojo oscuro y un borde rojo para indicar que ocurrió un error en la operación */
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.hidden {/*Clase para ocultar elementos, estableciendo su propiedad display a none para que no ocupen espacio en el diseño */
+    display: none;
+}
+
+@media (max-width: 768px) {/*Media query para dispositivos con un ancho máximo de 768px, aplicando estilos específicos para mejorar la experiencia en pantallas pequeñas */
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-card {
+        padding: 24px;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+}
+
+.input-error { /*Clase para los campos de entrada que tienen un error de validación, con un borde rojo y un fondo rojo claro para indicar visualmente el error */
+    border: 1px solid #dc2626 !important;
+    background-color: #fef2f2;
+}
+
+/*Clase para los campos de entrada que han pasado la validación, con un borde verde y un fondo verde claro para indicar visualmente que el campo es correcto */
+.input-success {
+    border: 1px solid #16a34a !important;
+    background-color: #f0fdf4;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!--Define la codificación de caracteres en UTF-8 para soportar caracteres especiales-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Hace que la página sea responsiva-->
+    <title>Registro de Alumno</title><!--Definicion del título de la página-->
+    <link rel="stylesheet" href="/css/alumno-form.css"><!--Cargamos el archivo CSS para estilos personalizados-->
+</head>
+<body><!--Estructura principal de la página, contiene el formulario de registro-->
+    <main class="page-container"><!--Contenedor principal que centra el contenido y aplica estilos generales-->
+        <section class="form-card"><!--Tarjeta que contiene el formulario, con estilos de fondo, bordes y sombras-->
+            <header class="form-header"><!--Encabezado del formulario con título y descripción-->
+                <h1>Formulario de Registro</h1>
+                <p>Consumo de servicios REST con HTML y JavaScript</p>
+            </header>
+
+            <form id="studentForm" novalidate><!--Formulario de registro de alumno, con atributo novalidate para manejar validación personalizada-->
+                <div class="form-grid"><!--Contenedor de los campos del formulario, organizado en una cuadrícula para mejor disposición-->
+                    <div class="form-group"><!--Grupo de campos para el nombre del alumno-->
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Ingrese el nombre"><!--Campo de texto para el nombre del alumno, con un placeholder para guiar al usuario-->
+                        <small class="error-message" id="error-name"></small><!--Elemento para mostrar mensajes de error específicos para el campo de nombre, inicialmente vacío y oculto mediante CSS-->
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Apellido</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Ingrese el apellido">
+                        <small class="error-message" id="error-lastName"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="Ingrese el correo electrónico">
+                        <small class="error-message" id="error-email"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="account">Número de cuenta</label>
+                        <input type="text" id="account" name="account" placeholder="Ingrese el número de cuenta">
+                        <small class="error-message" id="error-account"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="avg">Promedio</label>
+                        <input type="number" id="avg" name="avg" step="0.01" min="0" max="10" placeholder="Ingrese el promedio">
+                        <small class="error-message" id="error-avg"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">País</label>
+                        <select id="country" name="country">
+                            <option value="">Cargando países...</option>
+                        </select>
+                        <small class="error-message" id="error-country"></small>
+                    </div>
+                </div>
+
+                <div class="button-row"><!--Contenedor para los botones de acción, con estilos para alinearlos a la derecha-->
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-secondary" id="clearButton">Limpiar</button>
+                </div>
+            </form>
+
+            <section id="serverResponse" class="server-response hidden"></section><!--Sección para mostrar la respuesta del servidor después de enviar el formulario, inicialmente oculta con la clase "hidden"-->
+        </section>
+    </main>
+
+    <script src="/js/alumno-form.js"></script><!--Cargamos el archivo JavaScript que contiene la lógica para manejar el formulario, incluyendo la carga de países, validación y envío de datos al servidor-->
+</body>
+</html>
